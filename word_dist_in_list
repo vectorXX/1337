@@ -1,0 +1,12 @@
+class Solution:
+    def shortestDistance(self, words: List[str], word1: str, word2: str) -> int:
+        word1_list = [i for i, ele1 in enumerate(words) if ele1 == word1]
+        word2_list = [j for j, ele2 in enumerate(words) if ele2 == word2]
+        dist = 0
+        for k in word1_list:
+            for s in word2_list:
+                if dist > 0:
+                    dist = min(dist, abs(int(k)-int(s)))
+                else:
+                    dist = abs(int(k)-int(s))
+        return dist
